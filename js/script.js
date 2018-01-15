@@ -183,6 +183,12 @@ $(function(){
 	}
 
 	function certificates() {
+		$('.certificates__item').each(function(i, item) {
+			var img = $(item).find('img').hide().attr('src');
+
+			$(item).css('background-image', 'url('+img+')');
+		});
+
 		var slider = $('.certificates__list').flickity({
 			// groupCells: 5,
 			initialIndex: 2,
@@ -230,5 +236,16 @@ $(function(){
 		$('.modal[data-modal="'+modal+'"]').bPopup({
 			opacity: 0
 		});
+	})
+
+	$('[data-zoom]').on('click', function() {
+		var img = $(this).data('zoom');
+		$('.zoom__content').empty().append('<img src="'+img+'"/>');
+
+		$('.zoom').bPopup({
+			opacity: 0
+		});
+
+
 	})
 });
