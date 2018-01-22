@@ -14,7 +14,7 @@ $(function(){
 			contain: true,
 			draggable: false,
 			// freeScroll: true,
-			prevNextButtons: false,
+			// prevNextButtons: false,
 			pageDots: false,
 			centerMode: true
 		});
@@ -74,7 +74,7 @@ $(function(){
 		$(slider).on( 'select.flickity', function() {
 			$('.reviews__item.focus').removeClass('focus');
 			focus();
-		})
+		});
 	}
 
 	if ($('.reviews__list').get(0)) {
