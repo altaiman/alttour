@@ -52,25 +52,6 @@ $(function(){
 
 		focus();
 
-		$('.flickity-page-dots').on('mousedown', function() {
-			$(this).on('mousemove', function(e) {
-				console.log(e.target);
-				if (!$(e.target).hasClass('dot')) return;
-
-				$(this).find('.is-selected').removeClass('is-selected');
-				$(e.target).addClass('is-selected');
-			})
-
-			$(this).on('mouseup', function() {
-				$(this).off('mousemove');
-			})
-
-			$(this).on('mouseover', function(e) {
-				console.log(e.target)
-				// $(this).off('mousemove')		;
-			})
-		})
-
 		$(slider).on( 'select.flickity', function() {
 			$('.reviews__item.focus').removeClass('focus');
 			focus();
