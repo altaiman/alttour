@@ -44,6 +44,7 @@ $(function(){
 		var step = 100 / flkty.cells.length;
 
 		$('.reviews__sli').slider({
+			max: 100 - step,
 			slide: function() {
 				var left = Math.round($(this).find('span').first().css('left').split('px')[0]) / $(this).width() * 100;
 				flkty.select(Math.floor(left/step));
@@ -53,6 +54,9 @@ $(function(){
 		focus();
 
 		$(slider).on( 'select.flickity', function() {
+			var val = step * flkty.selectedIndex;
+
+			$('.reviews__sli').slider('value', val);
 			$('.reviews__item.focus').removeClass('focus');
 			focus();
 		});
@@ -105,7 +109,6 @@ $(function(){
 	            
 	            map.geoObjects.add(placemark);
             })
-            
         }
 
         $('.map__points li').on('click', function() {
@@ -143,7 +146,6 @@ $(function(){
 			});
 		});
 	}, function() {
-		console.log(this);
 		$(this).attr('data-stars', star)
 	})
 
