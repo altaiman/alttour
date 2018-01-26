@@ -225,9 +225,11 @@ $(function(){
 		var img = $(this).data('zoom');
 		$('.zoom__content').empty().append('<img src="'+img+'"/>');
 
-		$('.zoom').bPopup({
-			opacity: 0
-		});
+		setTimeout(function() {
+			$('.zoom').bPopup({
+				opacity: 0
+			});
+		}, 500)
 
 
 	})
