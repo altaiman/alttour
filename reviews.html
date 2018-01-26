@@ -464,15 +464,15 @@
 			<form class="form">
 	<div class="form__table">
 		<div class="form__cell">
-			<label class="form__field">
+			<label class="form__field form__field_req">
 				<input type="text" placeholder="Имя">
 			</label>
-			<label class="form__field">
+			<label class="form__field form__field_req">
 				<input type="text" placeholder="Телефон / e-mail">
 			</label>
 		</div>
 		<div class="form__cell">
-			<label class="form__field form__field_textarea">
+			<label class="form__field form__field_textarea form__field_req">
 				<textarea placeholder="Ваше сообщение"></textarea>
 			</label>
 		</div>
@@ -538,7 +538,7 @@
 				</div>
 				<div class="footer__block">
 					<button class="footer__btn btn" data-modal="order">Заказать тур</button>
-					<button class="footer__btn btn btn_tr">Подписаться</button>
+					<button data-modal="subscribe" class="footer__btn btn btn_tr">Подписаться</button>
 				</div>
 			</div>
 		</div>
@@ -561,13 +561,13 @@
 	<button class="b-close"></button>
 	<span class="modal__title">Заказать тур</span>
 	<form class="form form_modal">
-	<label class="form__field">
+	<label class="form__field form__field_req">
 		<input type="text" placeholder="Имя">
 	</label>
-	<label class="form__field">
+	<label class="form__field form__field_req">
 		<input type="text" placeholder="+7(__)___-__-__">
 	</label>
-	<label class="form__field">
+	<label class="form__field form__field_req">
 		<input type="text" placeholder="E-mail">
 	</label>
 	<label class="form__check check">
@@ -576,6 +576,23 @@
 		<p>Нажимая кнопку "Отправить", я даю свое согласие на обработку моих персональных данных,, в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ "О персональных данных", на условиях и для целей, определенных в Соласии на обработку персональных данных</p>
 	</label>
 	<button class="form__submit btn">Заказать тур</button>
+</form>
+</div>
+<div class="modal modal_order" data-modal="subscribe">
+	<button class="b-close"></button>
+	<span class="modal__title">Подписаться</span>
+	<form class="form">
+	<div class="form__table">
+		<label class="form__field">
+			<input type="text" placeholder="E-mail">
+		</label>
+	</div>
+	<label class="form__check check">
+		<input type="checkbox">
+		<span class="check__custom"><i class="fas fa-check"></i></span>
+		<p>Нажимая кнопку "Отправить", я даю свое согласие на обработку моих персональных данных,, в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ "О персональных данных", на условиях и для целей, определенных в Соласии на обработку персональных данных</p>
+	</label>
+	<button class="form__submit btn">Подписаться</button>
 </form>
 </div>
 

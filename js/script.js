@@ -230,7 +230,17 @@ $(function(){
 				opacity: 0
 			});
 		}, 500)
-
-
 	})
+
+	$('.form__submit').on('click', function(e) {
+		e.preventDefault();
+		var form = $(this).closest('form');
+		$(form).find('.form__field_error').removeClass('form__field_error');
+
+		$(form).find('.form__field_req').each(function(i, field) {
+			if ($(field).find('input, textarea').val().trim() === '') {
+				$(this).addClass('form__field_error');
+			}
+		})
+	});
 });
