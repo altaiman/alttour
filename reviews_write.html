@@ -75,9 +75,6 @@
 			<div class="drop" id="dropzone">
 				<p class="drop__text"><strong>Выберите файл</strong> или перенесите сюда</p>
 			</div>
-			<div class="drop">
-				<p class="drop__text"><strong>Выберите файл</strong> или перенесите сюда</p>
-			</div>
 		</div>
 		<div class="form__cell">
 			<div class="form__line">
@@ -99,10 +96,10 @@
 					</div>
 				</div>
 			</div>
-			<label class="form__field">
+			<label class="form__field form__field_req">
 				<input type="text" placeholder="Ваше имя">
 			</label>
-			<label class="form__field">
+			<label class="form__field form__field_req">
 				<input type="text" placeholder="Страна, в которой вы отдыхали">
 			</label>
 			<div class="form__field">
@@ -112,7 +109,7 @@
 					<option value="3">45</option>
 				</select>
 			</div>
-			<div class="form__field">
+			<div class="form__field form__field_req">
 				<select class="select">
 					<option value="default" class="select__placeholder" disabled selected>Где приобретали?</option>
 					<option value="2">Тут</option>
@@ -122,7 +119,7 @@
 			<label class="form__field form__field_date">
 				<input type="datepicker" placeholder="Apr 4, 2017">
 			</label>
-			<label class="form__field form__field_textarea">
+			<label class="form__field form__field_textarea form__field_req">
 				<textarea placeholder="Ваш рассказ"></textarea>
 			</label>
 		</div>
@@ -278,6 +275,10 @@
 	</label>
 	<button class="form__submit btn">Подписаться</button>
 </form>
+</div>
+<div class="modal" data-modal="online">
+	<button class="b-close"></button>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/KZHYwN39t5I" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
 	<script src="js/libs.js"></script>

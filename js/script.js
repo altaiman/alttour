@@ -155,7 +155,7 @@ $(function(){
 	if ($('#dropzone').get(0)) {
 		var dropzone = new Dropzone('#dropzone', {
 			url: '/upload',
-			maxFiles:1,
+			maxFiles:10,
 			init: function() {
 	      		this.on("maxfilesexceeded", function(file) {
 	            this.removeAllFiles();
@@ -213,7 +213,8 @@ $(function(){
 
 	$('input[type="datepicker"]').datepicker();
 	
-	$('[data-modal]').on('click', function() {
+	$('[data-modal]').on('click', function(e) {
+		e.preventDefault();
 		var modal = $(this).data('modal');
 
 		$('.modal[data-modal="'+modal+'"]').bPopup({
@@ -234,13 +235,26 @@ $(function(){
 
 	$('.form__submit').on('click', function(e) {
 		e.preventDefault();
-		var form = $(this).closest('form');
+		var form = $(this).closest('form'),
+			stars = $(form).find('.stars').get(0);
+
 		$(form).find('.form__field_error').removeClass('form__field_error');
 
 		$(form).find('.form__field_req').each(function(i, field) {
-			if ($(field).find('input, textarea').val().trim() === '') {
+			var val = $(field).find('input, textarea, select').val();
+
+
+			if (!val) {
 				$(this).addClass('form__field_error');
 			}
 		})
+
+		if (stars) {
+			console.log($(stars).attr('data-stars'))
+			$(stars).removeClass('stars_error');
+			if ($(stars).attr('data-stars') == 0) {
+				$(stars).addClass('stars_error');
+			}
+		}
 	});
 });
