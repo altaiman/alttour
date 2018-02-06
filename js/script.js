@@ -157,6 +157,9 @@ $(function(){
 		var dropzone = new Dropzone('#dropzone', {
 			url: '/upload',
 			maxFiles:10,
+			acceptedFiles: 'image/*',
+			addRemoveLinks: true,
+			dictRemoveFile: 'Удалить файл',
 			init: function() {
 	      		this.on("maxfilesexceeded", function(file) {
 	            this.removeAllFiles();
