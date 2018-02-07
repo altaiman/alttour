@@ -227,7 +227,19 @@ $(function(){
 	})
 
 	$('[data-zoom]').on('click', function() {
-		var img = $(this).data('zoom');
+		var img = $(this).data('zoom'),
+			current = this,
+			prev = $(current).prev().get(0),
+			next = $(current).next().get(0);
+
+		$('.zoom__ctr').show();
+
+		if (!prev) {
+			$('.zoom__ctr_prev').hide()
+		} else if (!next) {
+			$('.zoom__ctr_next').hide();
+		}
+
 		$('.zoom__content').empty().append('<img src="'+img+'"/>');
 
 		setTimeout(function() {
@@ -235,6 +247,21 @@ $(function(){
 				opacity: 0
 			});
 		}, 500)
+
+		$('.zoom__ctr').off();
+
+		$('.zoom__ctr').on('click', function() {
+			var direction = +$(this).hasClass('zoom__ctr_next');
+
+			switch (direction) {
+				case 0:
+					$(prev).trigger('click');
+					break;
+				case 1:
+					$(next).trigger('click');
+					break;
+			}
+		});
 	})
 
 	$('.form__submit').on('click', function(e) {
