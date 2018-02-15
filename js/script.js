@@ -217,14 +217,46 @@ $(function(){
 
 	$('input[type="datepicker"]').datepicker();
 	
-	$('[data-modal]').on('click', function(e) {
-		e.preventDefault();
-		var modal = $(this).data('modal');
+	// $('[data-modal]').on('click', function(e) {
+	// 	e.preventDefault();
+	// 	var modal = $(this).data('modal');
 
-		$('.modal[data-modal="'+modal+'"]').bPopup({
-			opacity: 0
+	// 	$('.modal[data-modal="'+modal+'"]').bPopup({
+	// 		opacity: 0
+	// 	});
+	// })
+
+	function teamModal() {
+		var bPopup;
+
+		$('li[data-modal="team"').hover(function() {
+			var modal = $(this).data('modal');
+
+			bPopup = $('.modal[data-modal="team"]').bPopup({
+				opacity: 0,
+				positionStyle: 'fixed'
+			});
+		}, function() {
+			bPopup.close();
 		});
-	})
+	}
+
+	// teamModal();
+
+	$('.team__item').hover(function() {
+		var reference = $(this);
+		var popper = document.querySelector('.modal[data-modal="team"]');
+		var anotherPopper = new Popper(
+		    reference,
+		    popper,
+		    {
+		        placement: 'bottom'
+		    }
+		);
+		$(popper).fadeIn(200);
+	}, function() {
+		$('.modal[data-modal="team"]').hide();
+	});
 
 	$('[data-zoom]').on('click', function() {
 		var img = $(this).data('zoom'),
