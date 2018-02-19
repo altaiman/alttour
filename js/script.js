@@ -68,10 +68,13 @@ $(function(){
 	
 	function countries() {
 		function image(item) {
-			var img = $(item).data('img');
+			var index = $(item).index(), 
+				img = $('.countries__image img')[index];
 
-			$('.countries__image').css('background-image', 'url('+img+')');
+			// $('.countries__image').empty().append($(img).clone());
+			// $('.countries__image').css('background-image', 'url('+img+')');
 			
+			$(img).addClass('show');
 			$(item).addClass('focus');
 		}
 
@@ -80,6 +83,7 @@ $(function(){
 
 		$('.countries__item').hover(function() {
 			$('.countries__item.focus').removeClass('focus');
+			$('.countries__image img').removeClass('show');
 			image(this);
 		})
 	}
