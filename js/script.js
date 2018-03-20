@@ -1,12 +1,19 @@
 $(function(){
-	$('.slider').flickity({
-		prevNextButtons: false,
-		wrapAround: true,
-		contain: true,
-		autoPlay: 6000,
-		pauseAutoPlayOnHover: false,
-		pauseAutoPlayOnFocus: false
-	})
+	$('.slider').each(function(i, slider) {
+		var slides = $(slider).find('.slider__item').length;
+
+		if (slides > 1) {
+			$(slider).flickity({
+				prevNextButtons: false,
+				wrapAround: true,
+				contain: true,
+				autoPlay: 6000,
+				pauseAutoPlayOnHover: false,
+				pauseAutoPlayOnFocus: false
+			});
+		};
+	});
+
 
 	function reviewsSlider() {
 		var slider = $('.reviews__list').flickity({
